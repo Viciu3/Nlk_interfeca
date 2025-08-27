@@ -1,0 +1,119 @@
+body {
+    margin: 0;
+    background: url('https://images.pexels.com/photos/956260/starry-sky-night-stars-956260.jpeg') #000;
+    background-size: cover;
+    background-attachment: fixed; /* Фиксированный фон при скролле */
+    font-family: 'Orbitron', sans-serif;
+}
+
+#three-js-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3; /* Поверх изображения */
+}
+
+#main-menu {
+    position: relative;
+    width: 100%;
+    min-height: 100vh; /* Минимальная высота для скролла */
+    z-index: 2; /* Под 3D-частицами, над фоновой текстурой */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    padding: 0;
+}
+
+.title {
+    margin-top: 20px;
+    font-size: 3em;
+    color: transparent;
+    -webkit-text-stroke: 2px #fff;
+    text-align: center;
+    width: 100%;
+    z-index: 4; /* Поверх 3D-частиц */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    line-height: 1.2;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%; /* Почти полный экран */
+    z-index: 2; /* Под 3D-частицами */
+    background: transparent;
+}
+
+.center-image {
+    width: 100vw;
+    height: 100vh;
+    object-fit: contain;
+    background: transparent;
+    mix-blend-mode: lighten; /* Удаляет черный фон */
+    filter: contrast(1.5); /* Усиливает четкость */
+}
+
+.password-container {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    margin: 20px 0;
+    z-index: 4; /* Поверх 3D-частиц */
+}
+
+#password-input {
+    padding: 10px;
+    font-size: 1.2em;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    outline: none;
+    margin-bottom: 20px;
+    width: 200px;
+}
+
+#confirm-btn {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#confirm-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+    .title {
+        font-size: 3em;
+    }
+    .center-image {
+        margin-top: -200px;
+        width: 100vw;
+        height: 100vh; /* Меньший размер для мобильных */
+    }
+    #password-input, #confirm-btn {
+        margin-top: -100px;
+        font-size: 1.8em;
+        padding: -50px;
+        width: 200px;
+    }
+    .password-container {
+        margin-top: -100px;
+        padding: 15px;
+    }
+}
